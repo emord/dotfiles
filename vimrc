@@ -18,7 +18,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tomtom/tcomment_vim'
 
 Bundle 'python.vim'
-Bundle 'taglist.vim'
+"Bundle 'taglist.vim'
 
 syntax on
 " Enable file type detection
@@ -33,6 +33,8 @@ set spell spelllang=en_us
 "search looks for matches while typing and highlights the matches
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 
 "tabs = 4 spaces and auto indent
 set expandtab
@@ -61,10 +63,12 @@ inoremap jj <Esc>
 noremap <Up> <C-w>w
 noremap <Down> <C-w>p
 " next/prev tab
-noremap <Right> gT 
-noremap <Left> gt
+noremap <Right> gt 
+noremap <Left> gT
+"NERDTree toggling
+nnoremap <F2> :NERDTreeToggle<CR>
 
-set foldmethod=indent
+set foldmethod=syntax
 
 " keeps the cursor off the bottom
 set scrolloff=5
@@ -104,5 +108,7 @@ nmap <leader>l :set list!<CR>
 if has("autocmd")
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType html setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 endif
