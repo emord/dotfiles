@@ -14,6 +14,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tomtom/tcomment_vim'
 
@@ -108,7 +109,5 @@ nmap <leader>l :set list!<CR>
 if has("autocmd")
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType scss,html,css,ruby,eruby,javascript,cucumber setlocal ts=2 sts=2 sw=2 expandtab
 endif
