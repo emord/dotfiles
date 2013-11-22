@@ -2,7 +2,7 @@
 	name = Jonathan Emord
 	email = jonathan.emord@gmail.com
 [push]
-	default = simple
+	default = tracking
 [alias]
     co = checkout
     br = branch
