@@ -115,7 +115,6 @@ nmap <leader>l :set list!<CR>
 if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby,javascript,cucumber setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
   autocmd BufWritePre  *.js,*.rb,*.erb :%s/\s\+$//e
 endif
 
