@@ -18,6 +18,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'rking/ag.vim'
 
 Bundle 'python.vim'
 "Bundle 'taglist.vim'
@@ -117,3 +118,5 @@ let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_ruby_checkers = ['rubylint']
+
+let g:agprg = 'ag --nogroup --nocolor --column'
