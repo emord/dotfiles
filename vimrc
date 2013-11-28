@@ -69,7 +69,7 @@ noremap <Down> <C-w>p
 noremap <Right> gt 
 noremap <Left> gT
 "NERDTree toggling
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
 
 set foldmethod=syntax
 
@@ -97,6 +97,10 @@ vnoremap k gk
 "breaks on whitespace
 set wrap linebreak nolist
 
+"highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
 " can move away from a changed buffer without warning
 set hidden
 
@@ -111,6 +115,8 @@ nmap <leader>l :set list!<CR>
 if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby,javascript,cucumber setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd BufWritePre  *.js,*.rb,*.erb :%s/\s\+$//e
 endif
 
 let g:syntastic_auto_loc_list=1
