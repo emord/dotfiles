@@ -16,6 +16,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tcomment_vim'
 
 Bundle 'python.vim'
@@ -107,7 +108,12 @@ nmap <leader>l :set list!<CR>
 " Only do this part when compiled with support for autocommands
 " http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
 if has("autocmd")
-  " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby,javascript,cucumber setlocal ts=2 sts=2 sw=2 expandtab
 endif
+
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=1
+let g:syntastic_check_on_open=1
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_ruby_checkers = ['rubylint']
