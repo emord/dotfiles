@@ -123,5 +123,6 @@ let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_ruby_checkers = ['rubylint']
+let g:syntastic_haskell_checkers = ['hlint']
 
 let g:agprg = 'ag --nogroup --nocolor --column'
