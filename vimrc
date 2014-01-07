@@ -114,8 +114,9 @@ nmap <leader>l :set list!<CR>
 " http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
 if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType scss,html,css,ruby,eruby,javascript,cucumber setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd BufWritePre  *.js,*.rb,*.erb :%s/\s\+$//e
+  autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript,cucumber,cpp setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h :%s/\s\+$//e
 endif
 
 let g:syntastic_auto_loc_list=1
@@ -124,5 +125,8 @@ let g:syntastic_check_on_open=1
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_ruby_checkers = ['rubylint']
 let g:syntastic_haskell_checkers = ['hlint']
+let g:syntastic_cpp_checkers = ['gcc', 'cpplint']
+let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard"
+let g:syntastic_cpp_compiler_options ='-Wall -std=c++11'
 
 let g:agprg = 'ag --nogroup --nocolor --column'

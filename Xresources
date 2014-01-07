@@ -60,6 +60,19 @@
 *color15:               #fdf6e3
 
 !!URxvt.font: xft:Inconsolata-dz for Powerline:size=12
-urxvt*font: xft:Terminus:pixelsize=18,xft:Inconsolata\ for\ Powerline:pixelsize=18
+urxvt*font: xft:Terminus:pixelsize=22,xft:Inconsolata\ for\ Powerline:pixelsize=18
 
+
+xterm*faceName:           Terminus:style=Regular:pixelsize=20
+!xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+xterm*dynamicColors:      true
+xterm*utf8:               2
+xterm*eightBitInput:      true
+xterm*saveLines:          512
+xterm*scrollKey:          true
+xterm*scrollTtyOutput:    false
+xterm*scrollBar:          true
+xterm*rightScrollBar:     true
+xterm*jumpScroll:         true
+xterm*multiScroll:        true
 
