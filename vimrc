@@ -66,10 +66,11 @@ inoremap jj <Esc>
 noremap <Up> <C-w>w
 noremap <Down> <C-w>p
 " next/prev tab
-noremap <Right> gt 
+noremap <Right> gt
 noremap <Left> gT
 "NERDTree toggling
 nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <F2> :set hlsearch!<CR>
 
 set foldmethod=syntax
 
@@ -116,6 +117,7 @@ if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript,cucumber,cpp setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab
   autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h :%s/\s\+$//e
 endif
 
