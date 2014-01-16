@@ -21,7 +21,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'rking/ag.vim'
 
 Bundle 'python.vim'
-"Bundle 'taglist.vim'
+Bundle 'taglist.vim'
 
 syntax on
 " Enable file type detection
@@ -71,6 +71,7 @@ noremap <Left> gT
 "NERDTree toggling
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F2> :set hlsearch!<CR>
+nnoremap <F4> :TlistToggle<CR>
 
 set foldmethod=syntax
 
@@ -116,8 +117,7 @@ nmap <leader>l :set list!<CR>
 if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript,cucumber,cpp setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript,cucumber,lua setlocal ts=2 sts=2 sw=2 expandtab
   autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h :%s/\s\+$//e
 endif
 
@@ -128,7 +128,7 @@ let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_ruby_checkers = ['rubylint']
 let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_cpp_checkers = ['gcc', 'cpplint']
-let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard"
+let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard,-readability/streams"
 let g:syntastic_cpp_compiler_options ='-Wall -std=c++11'
 
 let g:agprg = 'ag --nogroup --nocolor --column'
