@@ -8,20 +8,21 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'gerw/vim-latex-suite'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'godlygeek/tabular'
-Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'rking/ag.vim'
+Bundle 'bling/vim-airline'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/neomru.vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'ciaranm/googletest-syntax'
+Bundle 'emord/vim-ccollab'
 
-Bundle 'python.vim'
 Bundle 'taglist.vim'
+Bundle 'a.vim'
 
 syntax on
 " Enable file type detection
