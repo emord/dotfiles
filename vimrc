@@ -142,3 +142,5 @@ let g:syntastic_c_compiler_options ='-Wall -Wextra'
 let g:syntastic_c_cppcheck_args ='--enable=all'
 
 let g:agprg = 'ag -f --nogroup --nocolor --column'
+
+set diffopt+=iwhite
