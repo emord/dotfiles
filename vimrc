@@ -116,9 +116,10 @@ nmap <leader>l :set list!<CR>
 " http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
 if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType tsv setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript,cucumber,lua setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h :%s/\s\+$//e
+  autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h,*.py :%s/\s\+$//e
 endif
 
 let g:syntastic_auto_loc_list=1

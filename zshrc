@@ -41,7 +41,8 @@ source $ZSH/oh-my-zsh.sh
 DEFAULT_USER="jonathan"
 
 export EDITOR="vim"
+export BROWSER="google-chrome"
 
-xrdb -merge ~/.Xresources                      
+xrdb -merge ~/.Xresources
 
 alias vi='vim'
