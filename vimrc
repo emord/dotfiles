@@ -155,3 +155,6 @@ command! FixEndings call s:RemoveMultipleNewlines()
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='bubblegum'
+
+nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
+nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
