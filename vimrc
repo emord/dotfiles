@@ -13,7 +13,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'rking/ag.vim'
 Bundle 'bling/vim-airline'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/neomru.vim'
@@ -141,8 +140,6 @@ let g:syntastic_c_checkers = ['gcc', 'cppcheck']
 let g:syntastic_c_compiler_options ='-Wall -Wextra'
 let g:syntastic_c_cppcheck_args ='--enable=all'
 
-let g:agprg = 'ag -f --nogroup --nocolor --column'
-
 set diffopt+=iwhite
 
 function! s:RemoveMultipleNewlines()
@@ -165,3 +162,13 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#source('file_rec/async','sorters','sorter_rank')
 " replacing unite with ctrl-p
 nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
+
+" Use ag for search
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '-f --nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+endif
+
+nnoremap <Leader>s :Unite grep:.<cr>
+nnoremap <Leader>f :Unite grep:
