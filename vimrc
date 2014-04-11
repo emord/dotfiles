@@ -144,3 +144,11 @@ let g:syntastic_c_cppcheck_args ='--enable=all'
 let g:agprg = 'ag -f --nogroup --nocolor --column'
 
 set diffopt+=iwhite
+
+function! s:RemoveMultipleNewlines()
+    :%s/\s\+$//e
+    :%s/\n\{3,}/\r\r/e
+endfunction
+
+command! FixEndings call s:RemoveMultipleNewlines()
+
