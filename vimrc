@@ -129,11 +129,16 @@ endif
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_ruby_checkers = ['rubylint']
-let g:syntastic_haskell_checkers = ['hlint']
-let g:syntastic_cpp_checkers = ['gcc', 'cpplint']
-let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard,-readability/streams"
-let g:syntastic_cpp_compiler_options ='-Wall -std=c++11'
 
-let g:agprg = 'ag --nogroup --nocolor --column'
+let g:syntastic_ruby_checkers = ['rubylint']
+
+let g:syntastic_cpp_checkers = ['gcc', 'cppcheck', 'cpplint']
+let g:syntastic_cpp_compiler_options ='-Wall -Wextra -std=c++11'
+let g:syntastic_cpp_cppcheck_args ='--enable=all'
+let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard,-readability/streams"
+
+let g:syntastic_c_checkers = ['gcc', 'cppcheck']
+let g:syntastic_c_compiler_options ='-Wall -Wextra'
+let g:syntastic_c_cppcheck_args ='--enable=all'
+
+let g:agprg = 'ag -f --nogroup --nocolor --column'
