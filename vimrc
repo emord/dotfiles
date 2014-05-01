@@ -172,5 +172,5 @@ if executable('ag')
     let g:unite_source_grep_recursive_opt = ''
 endif
 
-nnoremap <Leader>s :Unite grep:.<cr>
-nnoremap <Leader>f :Unite grep:
+nnoremap <Leader>s :Unite -no-quit -keep-focus grep:.<cr>
+nnoremap <Leader>f :Unite -no-quit -keep-focus grep:
