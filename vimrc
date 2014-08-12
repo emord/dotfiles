@@ -7,10 +7,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
-Plugin 'gerw/vim-latex-suite'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'godlygeek/tabular'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -18,7 +16,10 @@ Plugin 'tpope/vim-rails'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'rking/ag.vim'
+Plugin 'bling/vim-airline'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/neomru.vim'
+Plugin 'Shougo/vimproc.vim'
 
 Plugin 'python.vim'
 Plugin 'taglist.vim'
@@ -105,6 +106,9 @@ set wrap linebreak nolist
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 " can move away from a changed buffer without warning
 set hidden
 
@@ -127,11 +131,44 @@ endif
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['python', 'pep8']
 let g:syntastic_ruby_checkers = ['rubylint']
 let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_cpp_checkers = ['gcc', 'cpplint']
 let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard,-readability/streams"
 let g:syntastic_cpp_compiler_options ='-Wall -std=c++11'
 
-let g:agprg = 'ag --nogroup --nocolor --column'
+set diffopt+=iwhite
+
+function! s:RemoveMultipleNewlines()
+    :%s/\s\+$//e
+    :%s/\n\{3,}/\r\r/e
+endfunction
+
+command! FixEndings call s:RemoveMultipleNewlines()
+
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='bubblegum'
+
+let g:unite_winheight=10
+
+nnoremap <silent> <Leader>m :Unite -buffer-name=recent file_mru<cr>
+nnoremap <Leader>b :Unite -buffer-name=buffers buffer<cr>
+
+" CtrlP search
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#source('file_rec/async','sorters','sorter_rank')
+" replacing unite with ctrl-p
+nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<cr>
+
+" Use ag for search
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '-f --nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+endif
+
+nnoremap <Leader>s :Unite -no-quit -keep-focus grep:.<cr>
+nnoremap <Leader>f :Unite -no-quit -keep-focus grep:
