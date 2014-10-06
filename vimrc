@@ -20,6 +20,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'kien/ctrlp.vim'
 
 Plugin 'taglist.vim'
+Plugin 'python.vim'
 
 call vundle#end()
 
@@ -128,6 +129,8 @@ endif
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
+
+let g:syntastic_python_checkers = ['python', 'pylint', 'pep8']
 
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_args ='-l'
