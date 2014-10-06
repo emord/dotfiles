@@ -18,6 +18,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
 
 Plugin 'taglist.vim'
 Plugin 'python.vim'
