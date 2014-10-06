@@ -17,6 +17,7 @@ Plugin 'bling/vim-airline'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'kien/ctrlp.vim'
 
 Plugin 'taglist.vim'
 
@@ -163,7 +164,9 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#source('file_rec/async','sorters','sorter_rank')
 " replacing unite with ctrl-p
-nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<cr>
+" nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<cr>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Use ag for search
 if executable('ag')
