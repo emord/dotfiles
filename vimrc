@@ -102,6 +102,9 @@ vnoremap k gk
 "breaks on whitespace
 set wrap linebreak nolist
 
+"fix backspace
+set backspace=indent,eol,start
+
 "highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
