@@ -188,3 +188,4 @@ let g:unite_source_grep_max_candidates = 100000
 
 nnoremap <Leader>s :Unite -no-quit -keep-focus grep:.<cr>
 nnoremap <Leader>f :Unite -no-quit -keep-focus grep:
+nnoremap <Leader>t :tselect 
