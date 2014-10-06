@@ -17,11 +17,8 @@ Plugin 'bling/vim-airline'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'ciaranm/googletest-syntax'
-Plugin 'emord/vim-ccollab'
 
 Plugin 'taglist.vim'
-Plugin 'a.vim'
 
 call vundle#end()
 
