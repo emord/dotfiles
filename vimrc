@@ -55,6 +55,8 @@ set textwidth=80
 "line numbers
 set number
 
+set cursorline
+
 "latex-suite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
