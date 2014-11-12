@@ -130,7 +130,7 @@ if has("autocmd")
   autocmd FileType tsv setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType cucumber,lua setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h,*.py,*c :%s/\s\+$//e
+  " autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h,*.py,*c :%s/\s\+$//e
 endif
 
 let g:syntastic_auto_loc_list=0
