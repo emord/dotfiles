@@ -11,8 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-rails'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tcomment_vim'
@@ -23,8 +21,13 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'chrisbra/csv.vim'
 
-Plugin 'python.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'alfredodeza/coveragepy.vim'
+Plugin 'elzr/vim-json'
+Plugin 'kien/ctrlp.vim'
+
 Plugin 'taglist.vim'
+Plugin 'python.vim'
 
 call vundle#end()
 
@@ -56,6 +59,8 @@ set textwidth=80
 
 "line numbers
 set number
+
+set cursorline
 
 "latex-suite
 set grepprg=grep\ -nH\ $*
@@ -104,6 +109,9 @@ vnoremap k gk
 "breaks on whitespace
 set wrap linebreak nolist
 
+"fix backspace
+set backspace=indent,eol,start
+
 "highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -126,19 +134,31 @@ if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType tsv setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript,cucumber,lua setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h,*.py :%s/\s\+$//e
+  autocmd FileType cucumber,lua setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType python setlocal foldmethod=indent
+  " autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h,*.py,*c :%s/\s\+$//e
 endif
 
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=0
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
-let g:syntastic_python_checkers = ['python', 'pep8']
-let g:syntastic_ruby_checkers = ['rubylint']
 let g:syntastic_haskell_checkers = ['hlint']
-let g:syntastic_cpp_checkers = ['gcc', 'cpplint']
+
+let g:syntastic_javascript_checkers = ['jshint']
+
+let g:syntastic_python_checkers = ['python', 'pep8', 'pylint']
+
+let g:syntastic_ruby_checkers = ['rubocop', 'rubylint']
+let g:syntastic_ruby_rubocop_args ='-l'
+
+let g:syntastic_cpp_checkers = ['gcc', 'cppcheck', 'cpplint']
+let g:syntastic_cpp_compiler_options ='-Wall -Wextra -std=c++11'
+let g:syntastic_cpp_cppcheck_args ='--enable=all -j 4'
 let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard,-readability/streams"
-let g:syntastic_cpp_compiler_options ='-Wall -std=c++11'
+
+let g:syntastic_c_checkers = ['gcc', 'cppcheck']
+let g:syntastic_c_compiler_options ='-Wall -Wextra'
+let g:syntastic_c_cppcheck_args ='--enable=all -j 4'
 
 set diffopt+=iwhite
 
@@ -163,7 +183,9 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#source('file_rec/async','sorters','sorter_rank')
 " replacing unite with ctrl-p
-nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<cr>
+" nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<cr>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Use ag for search
 if executable('ag')
@@ -172,7 +194,9 @@ if executable('ag')
     let g:unite_source_grep_recursive_opt = ''
 endif
 
+let g:csv_highlight_column = 'y'
+let g:unite_source_grep_max_candidates = 100000
+
 nnoremap <Leader>s :Unite -no-quit -keep-focus grep:.<cr>
 nnoremap <Leader>f :Unite -no-quit -keep-focus grep:
-
-let g:csv_highlight_column = 'y'
+nnoremap <Leader>t :tselect 

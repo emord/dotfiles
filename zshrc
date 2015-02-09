@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=/usr/share/oh-my-zsh/
+ZSH=~/.oh-my-zsh/
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -32,17 +32,18 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(gitfast)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-DEFAULT_USER="jonathan"
+DEFAULT_USER="blueserver"
 
 export EDITOR="vim"
 export BROWSER="google-chrome"
 
-xrdb -merge ~/.Xresources
+# xrdb -merge ~/.Xresources
 
 alias vi='vim'
+alias vim='vim -w ~/.vimlog "$@"'
