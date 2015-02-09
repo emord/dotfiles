@@ -17,6 +17,12 @@
 
     # remove all branches merged in to HEAD
     trim = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+    edit-modified = "!f() { git ls-files --modified | cut -f2 | sort -u ; }; vim `f`"
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+    sub = submodule update --init --recursive
 [help]
 	autocorrect = 1
 [init]
