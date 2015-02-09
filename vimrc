@@ -20,6 +20,8 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'pangloss/vim-javascript'
+Plugin 'alfredodeza/coveragepy.vim'
+Plugin 'elzr/vim-json'
 
 Plugin 'taglist.vim'
 Plugin 'python.vim'
