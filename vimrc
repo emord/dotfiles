@@ -20,15 +20,17 @@ Plugin 'bling/vim-airline'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'chrisbra/csv.vim'
 
 Plugin 'python.vim'
 Plugin 'taglist.vim'
 
 call vundle#end()
 
-syntax on
 " Enable file type detection
 filetype plugin indent on
+syntax on
 "
 " NERDTree fix directory opening
 let g:NERDTreeDirArrows=0
@@ -172,3 +174,5 @@ endif
 
 nnoremap <Leader>s :Unite -no-quit -keep-focus grep:.<cr>
 nnoremap <Leader>f :Unite -no-quit -keep-focus grep:
+
+let g:csv_highlight_column = 'y'
