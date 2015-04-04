@@ -5,31 +5,33 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'bling/vim-airline'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/neomru.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'chrisbra/csv.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plug 'scrooloose/syntastic', { 'for': ['python', 'javascript'] }
+Plug 'benekastah/neomake', { 'for': ['python', 'javascript', 'json'] }
+Plug 'tomtom/tcomment_vim'
+Plug 'bling/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
-Plugin 'Raimondi/delimitMate'
-Plugin 'alfredodeza/coveragepy.vim'
-Plugin 'elzr/vim-json'
-Plugin 'kien/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'kien/ctrlp.vim'
+Plug 'ludovicchabant/vim-gutentags', {'for': ['python']}
 
-Plugin 'taglist.vim'
-Plugin 'python.vim'
+Plug 'taglist.vim'
+Plug 'python.vim', { 'for': 'python' }
 
-call vundle#end()
+
+call plug#end()
 
 " Enable file type detection
 filetype plugin indent on
@@ -37,6 +39,8 @@ syntax on
 "
 " NERDTree fix directory opening
 let g:NERDTreeDirArrows=0
+
+set nomodeline
 
 "spell checking
 set spell spelllang=en_us
@@ -100,6 +104,7 @@ set undodir=~/.vim/undo
 set undolevels=1000
 set undoreload=10000
 
+
 " better navigation when wrapping
 nnoremap j gj
 nnoremap k gk
@@ -137,28 +142,33 @@ if has("autocmd")
   autocmd FileType cucumber,lua setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal foldmethod=indent
   " autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h,*.py,*c :%s/\s\+$//e
+  autocmd! BufWritePost,BufReadPost *.js,*.py,*.json Neomake
 endif
 
-let g:syntastic_auto_loc_list=0
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_open=1
-let g:syntastic_haskell_checkers = ['hlint']
+" let g:syntastic_auto_loc_list=0
+" let g:syntastic_enable_signs=1
+" let g:syntastic_check_on_open=1
+" let g:syntastic_haskell_checkers = ['hlint']
+"
+" let g:syntastic_javascript_checkers = ['jshint']
+"
+" let g:syntastic_python_checkers = ['python', 'pylint', 'pep8']
+" let g:syntastic_python_pylint_exec = '~/.virtualenvs/commcare-hq/bin/pylint'
+" let g:syntastic_python_pylint_args = '--load-plugins pylint_django'
+" let g:syntastic_python_pep8_args = '--ignore=E501,E128,F403'
+"
+" let g:syntastic_ruby_checkers = ['rubocop', 'rubylint']
+" let g:syntastic_ruby_rubocop_args ='-l'
+"
+" let g:syntastic_cpp_checkers = ['gcc', 'cppcheck', 'cpplint']
+" let g:syntastic_cpp_compiler_options ='-Wall -Wextra -std=c++11'
+" let g:syntastic_cpp_cppcheck_args ='--enable=all -j 4'
+" let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard,-readability/streams"
+"
+" let g:syntastic_c_checkers = ['gcc', 'cppcheck']
+" let g:syntastic_c_compiler_options ='-Wall -Wextra'
+" let g:syntastic_c_cppcheck_args ='--enable=all -j 4'
 
-let g:syntastic_javascript_checkers = ['jshint']
-
-let g:syntastic_python_checkers = ['python', 'pep8', 'pylint']
-
-let g:syntastic_ruby_checkers = ['rubocop', 'rubylint']
-let g:syntastic_ruby_rubocop_args ='-l'
-
-let g:syntastic_cpp_checkers = ['gcc', 'cppcheck', 'cpplint']
-let g:syntastic_cpp_compiler_options ='-Wall -Wextra -std=c++11'
-let g:syntastic_cpp_cppcheck_args ='--enable=all -j 4'
-let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard,-readability/streams"
-
-let g:syntastic_c_checkers = ['gcc', 'cppcheck']
-let g:syntastic_c_compiler_options ='-Wall -Wextra'
-let g:syntastic_c_cppcheck_args ='--enable=all -j 4'
 
 set diffopt+=iwhite
 
@@ -179,9 +189,9 @@ nnoremap <silent> <Leader>m :Unite -buffer-name=recent file_mru<cr>
 nnoremap <Leader>b :Unite -buffer-name=buffers buffer<cr>
 
 " CtrlP search
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#source('file_rec/async','sorters','sorter_rank')
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" call unite#filters#sorter_default#use(['sorter_rank'])
+" call unite#custom#source('file_rec/async','sorters','sorter_rank')
 " replacing unite with ctrl-p
 " nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<cr>
 let g:ctrlp_map = '<c-p>'
@@ -190,7 +200,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " Use ag for search
 if executable('ag')
     let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '-f --nogroup --nocolor --column'
+    let g:unite_source_grep_default_opts = "-f --nogroup --nocolor --column --ignore 'tags*'"
     let g:unite_source_grep_recursive_opt = ''
 endif
 
@@ -199,4 +209,8 @@ let g:unite_source_grep_max_candidates = 100000
 
 nnoremap <Leader>s :Unite -no-quit -keep-focus grep:.<cr>
 nnoremap <Leader>f :Unite -no-quit -keep-focus grep:
+nnoremap <Leader>i :Unite -no-quit -keep-focus grep:.:-i<cr>
+
 nnoremap <Leader>t :tselect 
+
+" let g:neomake_open_list = 1
