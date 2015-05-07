@@ -30,7 +30,6 @@ Plug 'ludovicchabant/vim-gutentags', {'for': ['python']}
 Plug 'taglist.vim'
 Plug 'python.vim', { 'for': 'python' }
 
-
 call plug#end()
 
 " Enable file type detection
@@ -77,11 +76,11 @@ colorscheme zenburn
 inoremap jj <Esc>
 
 " next/prev window
-noremap <Up> <C-w>w
-noremap <Down> <C-w>p
-" next/prev tab
-noremap <Right> gt
-noremap <Left> gT
+" noremap <Up> <C-w>w
+" noremap <Down> <C-w>p
+" " next/prev tab
+" noremap <Right> gt
+" noremap <Left> gT
 "NERDTree toggling
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F2> :set hlsearch!<CR>
@@ -121,8 +120,8 @@ set backspace=indent,eol,start
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
 
 " can move away from a changed buffer without warning
 set hidden
@@ -137,13 +136,16 @@ nmap <leader>l :set list!<CR>
 " http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
 if has("autocmd")
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType tsv setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType tsv,xml setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType cucumber,lua setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal foldmethod=indent
   " autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h,*.py,*c :%s/\s\+$//e
   autocmd! BufWritePost,BufReadPost *.js,*.py,*.json Neomake
 endif
+
+let g:gutentags_cache_dir = '.git'
+let g:neomake_python_pylint_exe = '~/.virtualenvs/commcare-hq/bin/pylint'
 
 " let g:syntastic_auto_loc_list=0
 " let g:syntastic_enable_signs=1
@@ -181,6 +183,8 @@ command! FixEndings call s:RemoveMultipleNewlines()
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
 let g:airline_theme='bubblegum'
 
 let g:unite_winheight=10
@@ -211,6 +215,4 @@ nnoremap <Leader>s :Unite -no-quit -keep-focus grep:.<cr>
 nnoremap <Leader>f :Unite -no-quit -keep-focus grep:
 nnoremap <Leader>i :Unite -no-quit -keep-focus grep:.:-i<cr>
 
-nnoremap <Leader>t :tselect 
-
-" let g:neomake_open_list = 1
+nnoremap <Leader>t :tselect
