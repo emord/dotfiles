@@ -11,16 +11,13 @@ Plug 'flazz/vim-colorschemes'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" Plug 'scrooloose/syntastic', { 'for': ['python', 'javascript'] }
 Plug 'benekastah/neomake', { 'for': ['python', 'javascript', 'json'] }
 Plug 'tomtom/tcomment_vim'
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+Plug 'Numkil/ag.nvim'
 
 Plug 'Raimondi/delimitMate'
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -146,6 +143,7 @@ endif
 
 let g:gutentags_cache_dir = '.git'
 let g:neomake_python_pylint_exe = '~/.virtualenvs/commcare-hq/bin/pylint'
+let g:neomake_open_list = 1
 
 " let g:syntastic_auto_loc_list=0
 " let g:syntastic_enable_signs=1
@@ -187,32 +185,10 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 let g:airline_theme='bubblegum'
 
-let g:unite_winheight=10
-
-nnoremap <silent> <Leader>m :Unite -buffer-name=recent file_mru<cr>
-nnoremap <Leader>b :Unite -buffer-name=buffers buffer<cr>
-
-" CtrlP search
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-" call unite#filters#sorter_default#use(['sorter_rank'])
-" call unite#custom#source('file_rec/async','sorters','sorter_rank')
-" replacing unite with ctrl-p
-" nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" Use ag for search
-if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = "-f --nogroup --nocolor --column --ignore 'tags*'"
-    let g:unite_source_grep_recursive_opt = ''
-endif
-
 let g:csv_highlight_column = 'y'
-let g:unite_source_grep_max_candidates = 100000
 
-nnoremap <Leader>s :Unite -no-quit -keep-focus grep:.<cr>
-nnoremap <Leader>f :Unite -no-quit -keep-focus grep:
-nnoremap <Leader>i :Unite -no-quit -keep-focus grep:.:-i<cr>
-
+nnoremap <Leader>s :Ag 
 nnoremap <Leader>t :tselect
