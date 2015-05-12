@@ -38,12 +38,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-DEFAULT_USER="blueserver"
-
-export EDITOR="vim"
+export EDITOR="nvim"
 export BROWSER="google-chrome"
 
-# xrdb -merge ~/.Xresources
+alias vim='nvim'
+alias vi='nvim'
 
-alias vi='vim'
-alias vim='vim -w ~/.vimlog "$@"'
