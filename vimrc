@@ -117,8 +117,7 @@ set backspace=indent,eol,start
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
+set colorcolumn=80
 
 " can move away from a changed buffer without warning
 set hidden
