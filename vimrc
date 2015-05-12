@@ -83,7 +83,7 @@ nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F2> :set hlsearch!<CR>
 nnoremap <F4> :TlistToggle<CR>
 
-set foldmethod=syntax
+set foldmethod=indent
 
 " keeps the cursor off the bottom
 set scrolloff=5
