@@ -21,8 +21,8 @@ Plug 'Numkil/ag.nvim'
 
 Plug 'Raimondi/delimitMate'
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
-Plug 'ludovicchabant/vim-gutentags', {'for': ['python']}
+
+" Plug 'ludovicchabant/vim-gutentags', {'for': ['python']}
 
 Plug 'taglist.vim'
 Plug 'python.vim', { 'for': 'python' }
@@ -137,12 +137,12 @@ if has("autocmd")
   autocmd FileType cucumber,lua setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal foldmethod=indent
   " autocmd BufWritePre  *.js,*.rb,*.erb,*.cpp,*.h,*.py,*c :%s/\s\+$//e
-  autocmd! BufWritePost,BufReadPost *.js,*.py,*.json Neomake
+  autocmd! BufWritePost,BufReadPost *.js,*.json Neomake
 endif
 
-let g:gutentags_cache_dir = '.git'
+" let g:gutentags_cache_dir = '.git'
 let g:neomake_python_pylint_exe = '~/.virtualenvs/commcare-hq/bin/pylint'
-let g:neomake_open_list = 1
+" let g:neomake_open_list = 1
 
 " let g:syntastic_auto_loc_list=0
 " let g:syntastic_enable_signs=1
