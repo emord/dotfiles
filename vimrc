@@ -21,6 +21,7 @@ Plug 'Numkil/ag.nvim'
 
 Plug 'Raimondi/delimitMate'
 Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 
 " Plug 'ludovicchabant/vim-gutentags', {'for': ['python']}
 
