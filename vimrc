@@ -21,7 +21,7 @@ Plug 'Numkil/ag.nvim'
 
 Plug 'Raimondi/delimitMate'
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'ludovicchabant/vim-gutentags', {'for': ['python']}
 
 Plug 'taglist.vim'
@@ -184,10 +184,10 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 let g:airline_theme='bubblegum'
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
 let g:csv_highlight_column = 'y'
 
 nnoremap <Leader>s :Ag 
 nnoremap <Leader>t :tselect
+nnoremap <C-p>  :FZF<CR>
+
+let g:ag_working_path_mode = 'r'
