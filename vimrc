@@ -29,6 +29,7 @@ Plug 'taglist.vim'
 Plug 'python.vim', { 'for': 'python' }
 
 Plug 'irrationalistic/vim-tasks'
+Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
@@ -193,3 +194,6 @@ nnoremap <Leader>t :tselect
 nnoremap <C-p>  :FZF<CR>
 
 let g:ag_working_path_mode = 'r'
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
