@@ -129,7 +129,7 @@ set hidden
 nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
-"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬
 
 " Only do this part when compiled with support for autocommands
 " http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
