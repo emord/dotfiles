@@ -57,9 +57,6 @@ set softtabstop=4
 set tabstop=4
 set autoindent
 
-"after 80 characters new line
-set textwidth=80
-
 "line numbers
 set number
 
