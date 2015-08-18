@@ -193,6 +193,8 @@ nnoremap <Leader>s :Ag
 nnoremap <Leader>t :tselect
 nnoremap <C-p>  :FZF<CR>
 
+nnoremap <Leader>w :w<CR>
+
 let g:ag_working_path_mode = 'r'
 
 vmap v <Plug>(expand_region_expand)
