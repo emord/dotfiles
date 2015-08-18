@@ -28,6 +28,8 @@ Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'taglist.vim'
 Plug 'python.vim', { 'for': 'python' }
 
+Plug 'irrationalistic/vim-tasks'
+
 call plug#end()
 
 " Enable file type detection
