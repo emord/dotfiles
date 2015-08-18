@@ -122,6 +122,8 @@ set colorcolumn=80
 " can move away from a changed buffer without warning
 set hidden
 
+let mapleader = "\<Space>"
+
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
