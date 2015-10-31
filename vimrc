@@ -35,8 +35,8 @@ call plug#end()
 
 " Enable file type detection
 filetype plugin indent on
-syntax on
-"
+syntax enable
+
 " NERDTree fix directory opening
 let g:NERDTreeDirArrows=0
 
