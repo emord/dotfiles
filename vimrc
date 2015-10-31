@@ -8,8 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes'
-Plug 'sjl/gundo.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'sjl/gundo.vim' Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'benekastah/neomake', { 'for': ['python', 'javascript', 'json'] }
 Plug 'tomtom/tcomment_vim'
@@ -38,7 +37,7 @@ syntax on
 " NERDTree fix directory opening
 let g:NERDTreeDirArrows=0
 
-set nomodeline
+set modelines=1
 
 "spell checking
 set spell spelllang=en_us
@@ -171,3 +170,5 @@ let g:ag_working_path_mode = 'r'
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" vim:foldmethod=marker:foldlevel=0
