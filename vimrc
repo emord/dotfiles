@@ -76,12 +76,6 @@ colorscheme zenburn
 "escape with jj really quickly
 inoremap jj <Esc>
 
-" next/prev window
-" noremap <Up> <C-w>w
-" noremap <Down> <C-w>p
-" " next/prev tab
-" noremap <Right> gt
-" noremap <Left> gT
 "NERDTree toggling
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F2> :set hlsearch!<CR>
