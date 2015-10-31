@@ -29,6 +29,8 @@ Plug 'python.vim', { 'for': 'python' }
 Plug 'irrationalistic/vim-tasks'
 Plug 'terryma/vim-expand-region'
 
+Plug 'shuber/vim-promiscuous'
+
 call plug#end()
 
 " Enable file type detection
@@ -171,5 +173,7 @@ let g:ag_working_path_mode = 'r'
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
 
 " vim:foldmethod=marker:foldlevel=0
