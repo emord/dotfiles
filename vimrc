@@ -52,6 +52,7 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set showmatch " highlight matching [{()}]
 
 "tabs = 4 spaces and auto indent
 set expandtab
