@@ -116,8 +116,6 @@ set backspace=indent,eol,start
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-set colorcolumn=80
-
 " can move away from a changed buffer without warning
 set hidden
 
