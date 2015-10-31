@@ -88,7 +88,8 @@ set scrolloff=5
 
 "persistent undo and auto backup
 set backup
-set backupdir=~/.vim/backups
+set writebackup
+set backupdir=~/.vim/backups,~/.tmp,/var/tmp,/tmp
 
 set swapfile
 set dir=~/.vim/swap
