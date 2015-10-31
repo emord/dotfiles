@@ -144,31 +144,6 @@ endif
 let g:neomake_python_pylint_exe = '~/.virtualenvs/commcare-hq/bin/pylint'
 " let g:neomake_open_list = 1
 
-" let g:syntastic_auto_loc_list=0
-" let g:syntastic_enable_signs=1
-" let g:syntastic_check_on_open=1
-" let g:syntastic_haskell_checkers = ['hlint']
-"
-" let g:syntastic_javascript_checkers = ['jshint']
-"
-" let g:syntastic_python_checkers = ['python', 'pylint', 'pep8']
-" let g:syntastic_python_pylint_exec = '~/.virtualenvs/commcare-hq/bin/pylint'
-" let g:syntastic_python_pylint_args = '--load-plugins pylint_django'
-" let g:syntastic_python_pep8_args = '--ignore=E501,E128,F403'
-"
-" let g:syntastic_ruby_checkers = ['rubocop', 'rubylint']
-" let g:syntastic_ruby_rubocop_args ='-l'
-"
-" let g:syntastic_cpp_checkers = ['gcc', 'cppcheck', 'cpplint']
-" let g:syntastic_cpp_compiler_options ='-Wall -Wextra -std=c++11'
-" let g:syntastic_cpp_cppcheck_args ='--enable=all -j 4'
-" let g:syntastic_cpp_cpplint_args="--filter=-legal/copyright,-build/header_guard,-readability/streams"
-"
-" let g:syntastic_c_checkers = ['gcc', 'cppcheck']
-" let g:syntastic_c_compiler_options ='-Wall -Wextra'
-" let g:syntastic_c_cppcheck_args ='--enable=all -j 4'
-
-
 set diffopt+=iwhite
 
 function! s:RemoveMultipleNewlines()
