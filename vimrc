@@ -37,6 +37,8 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
+set lazyredraw " redraw only when necessary
+
 " NERDTree fix directory opening
 let g:NERDTreeDirArrows=0
 
