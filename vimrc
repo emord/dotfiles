@@ -8,7 +8,8 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes'
-Plug 'sjl/gundo.vim' Plug 'tpope/vim-fugitive'
+Plug 'simnalamburt/vim-mundo'
+Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'benekastah/neomake', { 'for': ['python', 'javascript', 'json'] }
 Plug 'tomtom/tcomment_vim'
