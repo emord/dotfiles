@@ -23,8 +23,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 
-" Plug 'ludovicchabant/vim-gutentags', {'for': ['python']}
-
 Plug 'taglist.vim'
 Plug 'python.vim', { 'for': 'python' }
 
@@ -143,7 +141,6 @@ if has("autocmd")
   autocmd! BufWritePost,BufReadPost *.js,*.json Neomake
 endif
 
-" let g:gutentags_cache_dir = '.git'
 let g:neomake_python_pylint_exe = '~/.virtualenvs/commcare-hq/bin/pylint'
 " let g:neomake_open_list = 1
 
