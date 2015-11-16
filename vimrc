@@ -53,6 +53,19 @@ set modelines=1
 "spell checking
 set spell spelllang=en_us
 
+" Keybindings {{{
+let mapleader = "\<Space>"
+
+" better navigation when wrapping
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+"escape with jj
+inoremap jj <Esc>
+" }}}
+
 " Search {{{
 "search looks for matches while typing and highlights the matches
 set incsearch
@@ -117,19 +130,6 @@ set undofile
 set undodir=~/.vim/undo
 set undolevels=1000
 set undoreload=10000
-" }}}
-
-" Keybindings {{{
-let mapleader = "\<Space>"
-
-" better navigation when wrapping
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-
-"escape with jj
-inoremap jj <Esc>
 " }}}
 
 "breaks on whitespace
