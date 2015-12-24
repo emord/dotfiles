@@ -31,6 +31,8 @@ Plug 'terryma/vim-expand-region'
 
 Plug 'shuber/vim-promiscuous'
 
+Plug 'kassio/neoterm'
+
 call plug#end()
 " }}}
 
@@ -97,6 +99,22 @@ if has("autocmd")
   autocmd FileType tsv,xml setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
 endif
+" }}}
+
+" Neoterm{{{
+let g:neoterm_position = 'horizontal'
+
+" run set test lib
+nnoremap <silent> <Leader>rt :call neoterm#test#run('all')<cr>
+nnoremap <silent> <Leader>rr :call neoterm#test#rerun()<cr>
+
+" Useful maps
+" hide/close terminal
+nnoremap <silent> <Leader>th :call neoterm#close()<cr>
+" clear terminal
+nnoremap <silent> <Leader>tl :call neoterm#clear()<cr>
+" kills the current job (send a <c-c>)
+nnoremap <silent> <Leader>tc :call neoterm#kill()<cr>
 " }}}
 
 "line numbers
