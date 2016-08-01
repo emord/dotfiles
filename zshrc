@@ -40,6 +40,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
 export BROWSER="google-chrome"
+export TERM="xterm-256color"
 
 alias vim='nvim'
 alias vi='nvim'
