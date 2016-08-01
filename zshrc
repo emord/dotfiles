@@ -45,3 +45,19 @@ export TERM="xterm-256color"
 alias vim='nvim'
 alias vi='nvim'
 
+
+function pull-latest-master() {
+    git checkout master; git pull origin master
+    git submodule update --init
+    git submodule foreach --recursive 'git checkout master; git pull origin master &'
+    until [ -z "$(ps aux | grep '[g]it pull')" ]; do sleep 1; done
+}
+
+function delete-pyc () {
+        find . -type f -name "*.py[co]" -delete
+        find . -type d -name "__pycache__" -delete
+}
+
+function fix-wifi-after-restart() {
+    sudo iwlist wlan0 scanning
+}
