@@ -81,7 +81,7 @@ set showmatch " highlight matching [{()}]
 nnoremap <leader><space> :nohlsearch<CR>
 
 nnoremap <Leader>a :Ag 
-nnoremap <Leader>s :Ag <C-R><C-W><CR>
+nnoremap <Leader>s :Ag \b<C-R><C-W>\b<CR>
 let g:ag_working_path_mode = 'r'
 
 nnoremap <C-p>  :FZF<CR>
