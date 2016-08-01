@@ -45,7 +45,6 @@ export TERM="xterm-256color"
 alias vim='nvim'
 alias vi='nvim'
 
-
 function pull-latest-master() {
     git checkout master; git pull origin master
     git submodule update --init
