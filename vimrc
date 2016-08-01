@@ -14,6 +14,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'benekastah/neomake', { 'for': ['python', 'javascript', 'json'] }
 Plug 'tomtom/tcomment_vim'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
