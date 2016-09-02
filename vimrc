@@ -50,6 +50,7 @@ set lazyredraw " redraw only when necessary
 
 " NERDTree fix directory opening
 let g:NERDTreeDirArrows=0
+let NERDTreeIgnore = ['\.pyc$']
 
 set modelines=1
 
