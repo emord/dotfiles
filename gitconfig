@@ -30,4 +30,4 @@
 [core]
     editor = vim
 [diff]
-    compactionHeuristic = true
+    indentHeuristic = true
