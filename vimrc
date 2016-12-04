@@ -66,8 +66,8 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-"escape with jj
-inoremap jj <Esc>
+"escape with jk
+inoremap jk <Esc>
 " }}}
 
 " Search {{{
