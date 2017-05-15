@@ -31,3 +31,9 @@
     editor = vim
 [diff]
     compactionHeuristic = true
+[merge]
+    conflictstyle = diff3
+[status]
+    showUntrackedFiles = all
+[transfer]
+    fsckobjects = true
