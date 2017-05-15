@@ -5,36 +5,35 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
-call plug#begin('~/.vim/plugged')
+call vundle#begin()
 
-Plug 'flazz/vim-colorschemes'
-Plug 'simnalamburt/vim-mundo'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'benekastah/neomake', { 'for': ['python', 'javascript', 'json'] }
-Plug 'tomtom/tcomment_vim'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'chrisbra/csv.vim', { 'for': 'csv' }
-Plug 'Numkil/ag.nvim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'simnalamburt/vim-mundo'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plugin 'benekastah/neomake', { 'for': ['python', 'javascript', 'json'] }
+Plugin 'w0rp/ale'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plugin 'chrisbra/csv.vim', { 'for': 'csv' }
+Plugin 'Numkil/ag.nvim'
 
-Plug 'Raimondi/delimitMate'
-Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+Plugin 'Raimondi/delimitMate'
+Plugin 'elzr/vim-json', { 'for': 'json' }
+Plugin 'junegunn/fzf', { 'do': 'yes \| ./install' }
 
-Plug 'taglist.vim'
-Plug 'python.vim', { 'for': 'python' }
+Plugin 'taglist.vim'
+Plugin 'python.vim', { 'for': 'python' }
 
-Plug 'irrationalistic/vim-tasks'
-Plug 'terryma/vim-expand-region'
+Plugin 'irrationalistic/vim-tasks'
+Plugin 'terryma/vim-expand-region'
 
-Plug 'shuber/vim-promiscuous'
+Plugin 'elmcast/elm-vim', { 'for': 'elm' }
 
-Plug 'kassio/neoterm'
-
-call plug#end()
+call vundle#end()
 " }}}
 
 " Colors {{{
@@ -66,8 +65,8 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-"escape with jj
-inoremap jj <Esc>
+"escape with jk
+inoremap jk <Esc>
 " }}}
 
 " Search {{{
@@ -101,22 +100,6 @@ if has("autocmd")
   autocmd FileType tsv,xml setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType scss,html,css,ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
 endif
-" }}}
-
-" Neoterm{{{
-let g:neoterm_position = 'horizontal'
-
-" run set test lib
-nnoremap <silent> <Leader>rt :call neoterm#test#run('all')<cr>
-nnoremap <silent> <Leader>rr :call neoterm#test#rerun()<cr>
-
-" Useful maps
-" hide/close terminal
-nnoremap <silent> <Leader>th :call neoterm#close()<cr>
-" clear terminal
-nnoremap <silent> <Leader>tl :call neoterm#clear()<cr>
-" kills the current job (send a <c-c>)
-nnoremap <silent> <Leader>tc :call neoterm#kill()<cr>
 " }}}
 
 "line numbers
@@ -174,11 +157,23 @@ set listchars=tab:▸\ ,eol:¬
 
 if has("autocmd")
   autocmd FileType python setlocal foldmethod=indent
-  autocmd! BufWritePost,BufReadPost *.js,*.json Neomake
+  " autocmd! BufWritePost,BufReadPost *.py,*.js,*.json Neomake
 endif
 
-let g:neomake_python_pylint_exe = '~/.virtualenvs/commcare-hq/bin/pylint'
+" let g:neomake_python_pylint_exe = '/home/jemord/.virtualenvs/commcare-hq/bin/pylint'
+" let g:neomake_python_enabled_makers = ['python', 'pep8', 'pylint']
+" let g:neomake_python_pylint_maker = {
+"     \ 'args': ['--load-plugins', 'pylint_django'],
+"     \ }
+
 " let g:neomake_open_list = 1
+
+let g:ale_lint_delay = 500
+let g:ale_python_pylint_options = '--load-plugins pylint_django'
+let g:ale_python_flake8_args = '--max-line-length=115 --ignore E401'
+let g:ale_linters = {
+    \   'python': ['flake8', 'pylint'],
+\}
 
 set diffopt+=iwhite
 
@@ -188,6 +183,18 @@ function! s:RemoveMultipleNewlines()
 endfunction
 
 command! FixEndings call s:RemoveMultipleNewlines()
+
+function! s:FormatJSON()
+    :%!python -m json.tool
+endfunction
+
+command! FormatJSON call s:FormatJSON()
+
+function! s:FormatXML()
+    :%!xmllint --format - 
+endfunction
+
+command! FormatXML call s:FormatXML()
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
